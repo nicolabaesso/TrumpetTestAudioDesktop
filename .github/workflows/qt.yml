@@ -26,4 +26,3 @@ jobs:
           host: 'linux'
           target: 'desktop'
           setup-python: 'false'
-          tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator'
