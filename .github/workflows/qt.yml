@@ -25,7 +25,5 @@ jobs:
           version: '5.9.5'
           host: 'linux'
           target: 'desktop'
-          cache: 'true'
-          cache-key-prefix: 'install-qt-action'
           setup-python: 'false'
           tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator'
