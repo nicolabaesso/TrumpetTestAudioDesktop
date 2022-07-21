@@ -17,8 +17,12 @@ private:
     QMenu* edit;
     QMenu* chart;
     QMenu* about;
-    QPushButton* abortOperationButton;
+    QPushButton* singleAudioTest;
+    QPushButton* leftAudioTest;
+    QPushButton* rightAudioTest;
+    QPushButton* doubleAudioTest;
 
+    void initButtons(QGridLayout *btL);
 public:
     Window(QWidget *parent=nullptr);
 
