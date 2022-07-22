@@ -6,9 +6,9 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QFrame>
-#include <QPushButton>
-
-class Controller;
+#include "trumpetButton.h"
+#include <QSound>
+#include <iostream>
 
 class Window: public QWidget{
   Q_OBJECT
@@ -17,16 +17,22 @@ private:
     QMenu* edit;
     QMenu* chart;
     QMenu* about;
-    QPushButton* singleAudioTest;
-    QPushButton* leftAudioTest;
-    QPushButton* rightAudioTest;
-    QPushButton* doubleAudioTest;
+    TrumpetButton* singleAudioTest;
+    TrumpetButton* leftAudioTest;
+    TrumpetButton* rightAudioTest;
+    TrumpetButton* doubleAudioTest;
 
     void initButtons(QGridLayout *btL);
 public:
     Window(QWidget *parent=nullptr);
-
 private slots:
-
+    void singleTest();
+    void hoverSingle();
+    void hoverLeft();
+    void hoverRight();
+    void hoverDouble();
+    void leftTest();
+    void rightTest();
+    void doubleTest();
 };
 #endif // VIEW_H
