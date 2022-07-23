@@ -6,16 +6,15 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QFrame>
+#include <QMessageBox>
 #include "trumpetButton.h"
 #include <QSound>
 #include <iostream>
+#include <QIcon>
 
 class Window: public QWidget{
   Q_OBJECT
 private:
-    QMenu* file;
-    QMenu* edit;
-    QMenu* chart;
     QMenu* about;
     TrumpetButton* singleAudioTest;
     TrumpetButton* leftAudioTest;
@@ -23,6 +22,7 @@ private:
     TrumpetButton* doubleAudioTest;
 
     void initButtons(QGridLayout *btL);
+    void initMenu(QVBoxLayout* mL);
 public:
     Window(QWidget *parent=nullptr);
 private slots:
@@ -34,5 +34,6 @@ private slots:
     void leftTest();
     void rightTest();
     void doubleTest();
+    void showAboutDialog();
 };
 #endif // VIEW_H

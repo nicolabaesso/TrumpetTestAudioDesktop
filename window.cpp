@@ -5,6 +5,7 @@ Window::Window(QWidget *parent):QWidget(parent){
     QHBoxLayout* menuLayout=new QHBoxLayout;
     QGridLayout* buttonsLayout=new QGridLayout;
     setMouseTracking(true);
+    initMenu(mainLayout);
     initButtons(buttonsLayout);
     mainLayout->addLayout(menuLayout);
     mainLayout->addLayout(buttonsLayout);
@@ -30,6 +31,8 @@ void Window::initButtons(QGridLayout* btL){
     btL->addWidget(leftAudioTest,1,1);
     btL->addWidget(rightAudioTest,2,1);
     btL->addWidget(doubleAudioTest,3,1);
+    btL->setColumnStretch(0,1);
+    btL->setColumnStretch(2,1);
 }
 
 void Window::singleTest(){
@@ -74,4 +77,17 @@ void Window::hoverDouble(){
     leftAudioTest->setDisabled(true);
     rightAudioTest->setDisabled(true);
     doubleAudioTest->setDisabled(false);
+}
+
+void Window::initMenu(QVBoxLayout* mL){
+    QMenuBar* menuBar = new QMenuBar(this);
+    about=new QMenu("About...",menuBar);
+    about->addAction(new QAction("About Trumpet Test Audio...",about));
+    connect(about->actions().at(0),SIGNAL(triggered()),this,SLOT(showAboutDialog()));
+    menuBar->addMenu(about);
+    mL->addWidget(menuBar);
+}
+
+void Window::showAboutDialog(){
+    QMessageBox::about(this,"Trumpet Test Audio","Utility software for testing the device's audio. Developed with Qt 5.9.5");
 }
